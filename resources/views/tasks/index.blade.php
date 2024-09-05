@@ -22,7 +22,6 @@
     </div>
 @endif
 
-<!-- Create Task Modal -->
 <div class="modal fade" id="createTaskModal" tabindex="-1" aria-labelledby="createTaskModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -79,7 +78,6 @@
                     </td>
                     <td class="text-center">
                         @if(!$task->is_completed)
-                            <!-- Mark as Completed Button -->
                             <form action="{{ route('tasks.complete', $task->id) }}" method="POST" style="display:inline;">
                                 @csrf
                                 <button type="submit" class="btn btn-success btn-sm">Complete</button>
@@ -88,7 +86,6 @@
                             <span class="badge bg-success">Completed</span>
                         @endif
 
-                        <!-- Edit Task Button -->
                         <button type="button" class="btn btn-primary btn-sm" 
                                 data-bs-toggle="modal" 
                                 data-bs-target="#editTaskModal{{ $task->id }}"
@@ -96,7 +93,6 @@
                             Edit
                         </button>
 
-                        <!-- Delete Form -->
                         <form action="{{ route('tasks.destroy', $task->id) }}" method="POST" style="display:inline;">
                             @csrf
                             @method('DELETE')
@@ -105,7 +101,6 @@
                     </td>
                 </tr>
 
-                <!-- Edit Task Modal -->
                 <div class="modal fade" id="editTaskModal{{ $task->id }}" tabindex="-1" aria-labelledby="editTaskModalLabel{{ $task->id }}" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">

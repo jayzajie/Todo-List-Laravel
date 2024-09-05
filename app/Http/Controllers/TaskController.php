@@ -66,7 +66,7 @@ class TaskController extends Controller
     {
         $task = Task::findOrFail($id);
         $task->is_completed = true;
-        $task->completed_at = now(); // Set the completed_at timestamp
+        $task->completed_at = now();
         $task->save();
     
         return redirect()->route('tasks.index')->with('success', 'Task marked as completed!');
